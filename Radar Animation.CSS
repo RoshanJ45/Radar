@@ -1,0 +1,111 @@
+        :root {
+--dark-green: #022d16;
+--green: #054d2e;
+--bright-green: 0, 255, 0;
+}
+#radar {
+width:300px;
+aspect-ratio: 1;
+background-color: var(--dark-green);
+padding: 25px;
+box-sizing: border-box;
+position: relative;
+}
+#radar:after {
+pointer-events: none;
+content: "";
+position: absolute;
+width: 100%;
+height: 100%;
+top: 0;
+left: 0;
+background-size: 50px 50px;
+background-image: linear-gradient(
+to right,
+rgb(var(--bright-green)) 1px,
+transparent 1px
+),
+linear-gradient(to bottom, rgb(var(--bright-green)) 1px, transparent 1px);
+opacity: 0.5;
+}
+#circle {
+pointer-events: none;
+height: 100%;
+width: 100%;
+border-radius: 100%;
+overflow: hidden;
+position: relative;
+}
+#rings {
+pointer-events: none;
+height: 100%;
+width: 100%;
+background-color: var(--green);
+position: absolute;
+}
+#rings > * {
+border-radius: 100%;
+border: 2px solid rgb(var(--bright-green));
+box-sizing: border-box;
+position: absolute;
+left: 50%;
+top: 50%;
+transform: translate(-50%, -50%);
+aspect-ratio: 1;
+}
+#ring-0 {
+width: 100%;
+}
+#ring-1 {
+width: 80%;
+}
+#ring-2 {
+width: 60%;
+}
+#ring-3 {
+width: 40%;
+}
+#ring-4 {
+width: 20%;
+}
+#rotator {
+pointer-events: none;
+height: 100%;
+width: 100%;
+background: conic-gradient(
+transparent 0deg,
+rgba(var(--bright-green), 0.5) 250deg,
+rgba(var(--bright-green), 0.8) 359deg,
+white
+);
+position: absolute;
+animation: rotate infinite linear 3s;
+}
+@keyframes rotate {
+from {
+transform: rotate(0deg);
+}
+to {
+transform: rotate(360deg);
+}
+}
+#dot {
+pointer-events: none;
+width: 15px;
+aspect-ratio: 1;
+position: absolute;
+top: -100%;
+background-color: rgb(var(--bright-green));
+border-radius: 50%;
+animation: fadeOut 3s forwards;
+transform: translate(-50%, -50%);
+}
+@keyframes fadeOut {
+0% {
+opacity: 1;
+}
+100% {
+opacity: 0;
+}
+}
+    
